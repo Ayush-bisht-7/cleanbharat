@@ -1,12 +1,13 @@
+import { NextResponse } from 'next/server';
 import { getAllPosts, createPost, likePost } from '../../../lib/database.js';
 
 export async function GET() {
   try {
     const posts = await getAllPosts();
-    return Response.json(posts);
+    return NextResponse.json(posts);
   } catch (error) {
     console.error('Error fetching posts:', error);
-    return Response.json({ error: 'Failed to fetch posts' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 });
   }
 }
 
@@ -16,7 +17,7 @@ export async function POST(request) {
 
     // Basic validation
     if (!postData.title || postData.title.trim() === '') {
-      return Response.json({ error: 'Title is required' }, { status: 400 });
+      return NextResponse.json({ error: 'Title is required' }, { status: 400 });
     }
 
     const newPost = await createPost({
@@ -26,9 +27,9 @@ export async function POST(request) {
       image: postData.image || null,
     });
 
-    return Response.json(newPost, { status: 201 });
+    return NextResponse.json(newPost, { status: 201 });
   } catch (error) {
     console.error('Error creating post:', error);
-    return Response.json({ error: 'Failed to create post' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to create post' }, { status: 500 });
   }
 }

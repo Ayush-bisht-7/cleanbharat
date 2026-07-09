@@ -9,13 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@libsql/client": "^0.17.4",
     "bcryptjs": "^3.0.3",
     "next": "16.1.6",
     "next-auth": "^4.24.14",
     "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "sqlite": "^5.1.1",
-    "sqlite3": "^6.0.1"
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

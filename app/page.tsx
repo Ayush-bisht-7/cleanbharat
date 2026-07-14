@@ -49,7 +49,7 @@ export default async function HomePage() {
                   </svg>
                   Report an Issue
                 </Link>
-                <Link href="/issues" className="btn btn-outline" style={{ color: "rgba(255,255,255,0.7)", borderColor: "rgba(255,255,255,0.2)" }}>
+                <Link href="/issues" className="btn btn-outline">
                   Browse Issues
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
@@ -74,12 +74,12 @@ export default async function HomePage() {
             {/* Right – decorative cards */}
             <div className="hero-visual">
               {[
-                { icon: "🚧", label: "Road Damage", sub: "Main Street · 12 supports" },
-                { icon: "💡", label: "Street Light Out", sub: "Park Avenue · 8 supports" },
-                { icon: "🗑️", label: "Garbage Overflow", sub: "Sector 7 · 5 supports" },
+                { num: "01", label: "Road Damage", sub: "Main Street · 12 supports" },
+                { num: "02", label: "Street Light Out", sub: "Park Avenue · 8 supports" },
+                { num: "03", label: "Garbage Overflow", sub: "Sector 7 · 5 supports" },
               ].map((c) => (
                 <div className="hero-card-preview" key={c.label}>
-                  <div className="hero-card-icon" style={{ fontSize: 20 }}>{c.icon}</div>
+                  <div className="hero-card-icon">{c.num}</div>
                   <div>
                     <div className="hero-card-label">{c.label}</div>
                     <div className="hero-card-sub">{c.sub}</div>
@@ -154,7 +154,7 @@ export default async function HomePage() {
             <Link href="/report" className="btn btn-primary-amber">
               Report an Issue
             </Link>
-            <Link href="/issues" className="btn btn-outline" style={{ color: "rgba(255,255,255,0.7)", borderColor: "rgba(255,255,255,0.2)" }}>
+            <Link href="/issues" className="btn btn-outline">
               View All Issues
             </Link>
           </div>

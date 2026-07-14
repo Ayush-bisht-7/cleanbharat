@@ -46,9 +46,6 @@ export default function Navbar() {
               <>
                 <li>
                   <Link href="/report" className={`navbar-link ${pathname === "/report" ? "active" : ""}`}>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
                     Report Issue
                   </Link>
                 </li>
@@ -56,15 +53,40 @@ export default function Navbar() {
                 <li style={{ position: "relative" }}>
                   <button
                     onClick={() => setUserMenuOpen((v) => !v)}
-                    style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, padding: "6px 12px", cursor: "pointer", color: "#fff" }}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      background: "transparent",
+                      border: "1px solid var(--color-ink)",
+                      borderRadius: 0,
+                      padding: "6px 12px",
+                      cursor: "pointer",
+                      color: "var(--color-ink)",
+                      fontFamily: "var(--font-mono)",
+                      fontSize: 11,
+                      textTransform: "uppercase"
+                    }}
                   >
-                    <div style={{ width: 26, height: 26, background: "#fbb03b", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 12, color: "#0f1923", flexShrink: 0 }}>
+                    <div style={{
+                      width: 20,
+                      height: 20,
+                      background: "var(--color-ink)",
+                      borderRadius: 0,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: 700,
+                      fontSize: 10,
+                      color: "var(--color-bg)",
+                      flexShrink: 0
+                    }}>
                       {session.user?.name?.[0]?.toUpperCase()}
                     </div>
-                    <span style={{ fontSize: 13, fontWeight: 500, maxWidth: 100, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                    <span style={{ fontWeight: 500, maxWidth: 100, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                       {session.user?.name}
                     </span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ opacity: 0.5 }}>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ opacity: 0.7 }}>
                       <polyline points="6 9 12 15 18 9" />
                     </svg>
                   </button>
@@ -72,18 +94,43 @@ export default function Navbar() {
                   {userMenuOpen && (
                     <>
                       <div style={{ position: "fixed", inset: 0, zIndex: 98 }} onClick={() => setUserMenuOpen(false)} />
-                      <div style={{ position: "absolute", right: 0, top: "calc(100% + 8px)", background: "#1a2535", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 10, padding: 6, minWidth: 180, zIndex: 99, boxShadow: "0 8px 24px rgba(0,0,0,0.3)" }}>
-                        <div style={{ padding: "8px 12px", borderBottom: "1px solid rgba(255,255,255,0.07)", marginBottom: 4 }}>
-                          <div style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>{session.user?.name}</div>
-                          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginTop: 2 }}>{session.user?.email}</div>
+                      <div style={{
+                        position: "absolute",
+                        right: 0,
+                        top: "calc(100% + 4px)",
+                        background: "var(--color-bg)",
+                        border: "1px solid var(--color-border)",
+                        borderRadius: 0,
+                        padding: 6,
+                        minWidth: 180,
+                        zIndex: 99
+                      }}>
+                        <div style={{ padding: "8px 12px", borderBottom: "1px solid var(--color-border-muted)", marginBottom: 4 }}>
+                          <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-ink)", fontFamily: "var(--font-mono)", textTransform: "uppercase" }}>{session.user?.name}</div>
+                          <div style={{ fontSize: 10, color: "var(--color-muted)", marginTop: 2, fontFamily: "var(--font-mono)" }}>{session.user?.email}</div>
                         </div>
                         <button
                           onClick={() => { setUserMenuOpen(false); signOut({ callbackUrl: "/" }); }}
-                          style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", padding: "8px 12px", borderRadius: 6, fontSize: 13, color: "rgba(255,255,255,0.6)", background: "transparent", border: "none", cursor: "pointer", transition: "background 0.1s" }}
-                          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.07)")}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 8,
+                            width: "100%",
+                            padding: "8px 12px",
+                            borderRadius: 0,
+                            fontSize: 11,
+                            fontFamily: "var(--font-mono)",
+                            textTransform: "uppercase",
+                            color: "var(--color-ink)",
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            transition: "background 0.1s"
+                          }}
+                          onMouseEnter={(e) => (e.currentTarget.style.background = "var(--color-bg-alt)")}
                           onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                         >
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" y1="12" x2="9" y2="12" />
                           </svg>
                           Sign Out

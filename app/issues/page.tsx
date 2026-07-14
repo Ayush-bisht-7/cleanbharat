@@ -115,26 +115,25 @@ export default function IssuesPage() {
         {/* Auth prompt banner */}
         {authPrompt && (
           <div style={{
-            background: "#fff",
-            border: "1.5px solid var(--color-amber)",
-            borderRadius: "var(--radius-md)",
-            padding: "14px 20px",
-            marginBottom: 24,
+            background: "var(--color-bg)",
+            border: "1px solid var(--color-border)",
+            borderRadius: 0,
+            padding: "16px 24px",
+            marginBottom: 32,
             display: "flex",
             alignItems: "center",
-            gap: 14,
-            flexWrap: "wrap",
-            boxShadow: "0 4px 16px rgba(251,176,59,0.12)",
+            gap: 16,
+            flexWrap: "wrap"
           }}>
             <span style={{ fontSize: 20 }}>🔒</span>
             <div style={{ flex: 1, minWidth: 200 }}>
-              <p style={{ margin: 0, fontWeight: 600, color: "var(--color-ink)", fontSize: 14 }}>Sign in required</p>
+              <p style={{ margin: 0, fontWeight: 600, color: "var(--color-ink)", fontSize: 14, fontFamily: "var(--font-display)" }}>SIGN IN REQUIRED</p>
               <p style={{ margin: 0, fontSize: 13, color: "var(--color-muted)" }}>You need to be signed in to support or report issues.</p>
             </div>
-            <div style={{ display: "flex", gap: 8 }}>
-              <Link href="/login?callbackUrl=/issues" className="btn btn-primary" style={{ padding: "8px 18px", fontSize: 13 }}>Sign In</Link>
-              <Link href="/register" className="btn btn-outline" style={{ padding: "7px 16px", fontSize: 13 }}>Register</Link>
-              <button onClick={() => setAuthPrompt(false)} style={{ background: "transparent", border: "none", cursor: "pointer", color: "var(--color-subtle)", padding: "4px 6px", borderRadius: 6 }} aria-label="Dismiss">
+            <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+              <Link href="/login?callbackUrl=/issues" className="btn btn-primary" style={{ padding: "8px 16px", fontSize: 11 }}>Sign In</Link>
+              <Link href="/register" className="btn btn-outline" style={{ padding: "8px 16px", fontSize: 11 }}>Register</Link>
+              <button onClick={() => setAuthPrompt(false)} style={{ background: "transparent", border: "none", cursor: "pointer", color: "var(--color-ink)", padding: "4px 8px" }} aria-label="Dismiss">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
@@ -175,14 +174,14 @@ export default function IssuesPage() {
               </span>
             )}
             {status === "authenticated" ? (
-              <Link href="/report" className="btn btn-primary" style={{ padding: "9px 18px", fontSize: 13, gap: 6 }}>
+              <Link href="/report" className="btn btn-primary" style={{ gap: 6 }}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
                 </svg>
                 Report Issue
               </Link>
             ) : (
-              <button className="btn btn-primary" style={{ padding: "9px 18px", fontSize: 13, gap: 6 }} onClick={() => setAuthPrompt(true)}>
+              <button className="btn btn-primary" style={{ gap: 6 }} onClick={() => setAuthPrompt(true)}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
                 </svg>

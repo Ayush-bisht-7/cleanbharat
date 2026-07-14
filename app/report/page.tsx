@@ -184,14 +184,14 @@ export default function ReportPage() {
             {/* Reporter info */}
             <div className="form-card" style={{ marginBottom: 16 }}>
               <div className="form-body" style={{ padding: "20px 24px" }}>
-                <p style={{ fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--color-muted)", marginBottom: 12 }}>Reporting as</p>
+                <p style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--color-muted)", marginBottom: 12, fontFamily: "var(--font-mono)" }}>Reporting as</p>
                 <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <div style={{ width: 40, height: 40, background: "var(--color-amber)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 700, color: "var(--color-ink)", fontSize: 16, flexShrink: 0 }}>
+                  <div style={{ width: 40, height: 40, background: "var(--color-ink)", borderRadius: 0, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 700, color: "var(--color-bg)", fontSize: 16, flexShrink: 0 }}>
                     {session?.user?.name?.[0]?.toUpperCase() || "?"}
                   </div>
                   <div>
                     <div style={{ fontWeight: 600, fontSize: 14, color: "var(--color-ink)" }}>{session?.user?.name || ""}</div>
-                    <div style={{ fontSize: 12, color: "var(--color-subtle)" }}>{session?.user?.email || ""}</div>
+                    <div style={{ fontSize: 11, color: "var(--color-muted)", fontFamily: "var(--font-mono)" }}>{session?.user?.email || ""}</div>
                   </div>
                 </div>
               </div>
@@ -217,9 +217,9 @@ export default function ReportPage() {
               </div>
             </div>
 
-            <div style={{ background: "var(--color-amber-dim)", border: "1px solid rgba(251,176,59,0.2)", borderRadius: "var(--radius-lg)", padding: "16px 20px" }}>
-              <p style={{ fontSize: 13, color: "#92620a", margin: 0, lineHeight: 1.65 }}>
-                <strong style={{ color: "#7a5008" }}>Note:</strong> All submitted issues are publicly visible. Do not include personal data of others.
+            <div style={{ background: "var(--color-bg-alt)", border: "1px solid var(--color-border)", borderRadius: 0, padding: "16px 20px" }}>
+              <p style={{ fontSize: 12, color: "var(--color-ink)", margin: 0, lineHeight: 1.65, fontFamily: "var(--font-mono)", textTransform: "uppercase" }}>
+                <strong>Note:</strong> All submitted issues are publicly visible. Do not include personal data of others.
               </p>
             </div>
           </div>

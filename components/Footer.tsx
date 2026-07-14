@@ -61,9 +61,8 @@ export default function Footer() {
             <span style={{
               width: 6,
               height: 6,
-              background: "#fbb03b",
-              borderRadius: "50%",
-              animation: "pulse-dot 2s ease-in-out infinite",
+              background: "var(--color-ink)",
+              borderRadius: 0,
               display: "inline-block",
             }} />
             Community Driven

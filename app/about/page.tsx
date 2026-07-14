@@ -14,7 +14,8 @@ export default function AboutPage() {
       <section className="about-hero">
         <div className="container">
           <div className="about-hero-inner">
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(251,176,59,0.12)", border: "1px solid rgba(251,176,59,0.25)", color: "#fbb03b", fontSize: 12, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", padding: "6px 14px", borderRadius: 9999, marginBottom: 24 }}>
+            <div className="hero-badge">
+              <span className="hero-badge-dot" />
               About Us
             </div>
             <h1>Building a Cleaner India, Together</h1>
@@ -29,16 +30,16 @@ export default function AboutPage() {
       {/* Mission */}
       <section className="section">
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }} className="about-mission-grid">
+          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 64, alignItems: "center" }} className="about-mission-grid">
             <div>
               <span className="section-kicker">Our Mission</span>
               <h2 style={{ marginBottom: 16 }}>Every voice matters in shaping our cities</h2>
-              <p style={{ fontSize: 16, marginBottom: 20 }}>
+              <p style={{ fontSize: 15, marginBottom: 20 }}>
                 India&apos;s cities are home to hundreds of millions of people. Every day, citizens
                 encounter civic problems — potholes, broken lights, sanitation failures — that go
                 unreported and unfixed.
               </p>
-              <p style={{ fontSize: 16, marginBottom: 28 }}>
+              <p style={{ fontSize: 15, marginBottom: 28 }}>
                 CleanBharat bridges the gap between citizens and civic action. By making reporting
                 fast, simple, and community-powered, we help the most pressing issues rise to the top
                 so they get resolved first.
@@ -49,15 +50,15 @@ export default function AboutPage() {
             </div>
             <div className="values-grid" style={{ marginTop: 0 }}>
               {[
-                { icon: "🌍", title: "Community First", desc: "Every feature is built for the citizen reporter, not bureaucracies." },
-                { icon: "🔍", title: "Transparency", desc: "All reports are public. Anyone can see, support, and track issues." },
-                { icon: "⚡", title: "Speed", desc: "Report in under 60 seconds. No sign-up. No bureaucracy." },
-                { icon: "📊", title: "Data-Driven", desc: "Community votes surface the most urgent problems automatically." },
+                { num: "01", title: "Community First", desc: "Every feature is built for the citizen reporter, not bureaucracies." },
+                { num: "02", title: "Transparency", desc: "All reports are public. Anyone can see, support, and track issues." },
+                { num: "03", title: "Speed", desc: "Report in under 60 seconds. No sign-up. No bureaucracy." },
+                { num: "04", title: "Data-Driven", desc: "Community votes surface the most urgent problems automatically." },
               ].map((v) => (
                 <div className="value-card" key={v.title}>
-                  <div className="value-icon" style={{ fontSize: 20 }}>{v.icon}</div>
+                  <div className="hero-card-icon" style={{ marginBottom: 16 }}>{v.num}</div>
                   <h3>{v.title}</h3>
-                  <p>{v.desc}</p>
+                  <p style={{ fontSize: 13, marginTop: 8 }}>{v.desc}</p>
                 </div>
               ))}
             </div>
@@ -112,7 +113,7 @@ export default function AboutPage() {
           <p>Thousands of citizens are already making a difference. Your report could be the one that gets something fixed.</p>
           <div className="cta-actions">
             <Link href="/report" className="btn btn-primary-amber">Report an Issue</Link>
-            <Link href="/issues" className="btn btn-outline" style={{ color: "rgba(255,255,255,0.7)", borderColor: "rgba(255,255,255,0.2)" }}>
+            <Link href="/issues" className="btn btn-outline">
               Browse Issues
             </Link>
           </div>

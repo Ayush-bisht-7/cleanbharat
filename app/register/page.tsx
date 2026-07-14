@@ -48,18 +48,18 @@ export default function RegisterPage() {
   };
 
   return (
-    <div style={{ minHeight: "calc(100vh - 64px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "40px 16px" }}>
+    <div style={{ minHeight: "calc(100vh - var(--nav-height))", display: "flex", alignItems: "center", justifyContent: "center", padding: "40px 16px" }}>
       <div style={{ width: "100%", maxWidth: 420 }}>
         {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: 32 }}>
-          <div style={{ width: 52, height: 52, background: "#fbb03b", borderRadius: 14, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f1923" strokeWidth="2.5">
+          <div style={{ width: 52, height: 52, background: "var(--color-ink)", borderRadius: 0, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-bg)" strokeWidth="2.5">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
               <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
           </div>
-          <h1 style={{ fontSize: 28, marginBottom: 6 }}>Create your account</h1>
-          <p style={{ fontSize: 15, margin: 0 }}>Join CleanBharat and start reporting issues</p>
+          <h1 style={{ fontSize: 24, marginBottom: 6, fontFamily: "var(--font-display)" }}>CREATE YOUR ACCOUNT</h1>
+          <p style={{ fontSize: 14, margin: 0, color: "var(--color-muted)" }}>Join CleanBharat and start reporting issues</p>
         </div>
 
         <div className="form-card">
@@ -104,9 +104,9 @@ export default function RegisterPage() {
               </button>
             </form>
 
-            <p style={{ textAlign: "center", marginTop: 20, fontSize: 14, color: "var(--color-muted)" }}>
+            <p style={{ textAlign: "center", marginTop: 24, fontSize: 13, color: "var(--color-muted)" }}>
               Already have an account?{" "}
-              <Link href="/login" style={{ color: "var(--color-ink)", fontWeight: 600 }}>
+              <Link href="/login" style={{ color: "var(--color-ink)", fontWeight: 600, fontFamily: "var(--font-mono)", textDecoration: "underline" }}>
                 Sign in
               </Link>
             </p>

@@ -15,7 +15,7 @@ export const authOptions: NextAuthOptions = {
         if (!credentials?.email || !credentials?.password) return null;
 
         const user = await getUserByEmail(credentials.email) as {
-          id: number; name: string; email: string; password_hash: string;
+          id: number; name: string; email: string; password_hash: string; role?: string;
         } | null;
 
         if (!user) return null;
@@ -23,7 +23,7 @@ export const authOptions: NextAuthOptions = {
         const isValid = await bcrypt.compare(credentials.password, user.password_hash);
         if (!isValid) return null;
 
-        return { id: String(user.id), name: user.name, email: user.email };
+        return { id: String(user.id), name: user.name, email: user.email, role: user.role || "user" };
       },
     }),
   ],
@@ -33,11 +33,17 @@ export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
   callbacks: {
     jwt({ token, user }) {
-      if (user) token.id = user.id;
+      if (user) {
+        token.id = user.id;
+        token.role = (user as any).role || "user";
+      }
       return token;
     },
     session({ session, token }) {
-      if (session.user) (session.user as { id?: string }).id = token.id as string;
+      if (session.user) {
+        (session.user as { id?: string }).id = token.id as string;
+        (session.user as { role?: string }).role = token.role as string;
+      }
       return session;
     },
   },

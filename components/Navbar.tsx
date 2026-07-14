@@ -42,6 +42,14 @@ export default function Navbar() {
               </li>
             ))}
 
+            {session && (session.user as any).role === "admin" && (
+              <li>
+                <Link href="/admin" className={`navbar-link ${pathname === "/admin" ? "active" : ""}`}>
+                  Admin
+                </Link>
+              </li>
+            )}
+
             {session ? (
               <>
                 <li>
@@ -174,6 +182,11 @@ export default function Navbar() {
             {l.label}
           </Link>
         ))}
+        {session && (session.user as any).role === "admin" && (
+          <Link href="/admin" className={`navbar-link ${pathname === "/admin" ? "active" : ""}`} onClick={() => setMenuOpen(false)}>
+            Admin
+          </Link>
+        )}
         {session ? (
           <>
             <Link href="/report" className="navbar-link" onClick={() => setMenuOpen(false)}>Report Issue</Link>
